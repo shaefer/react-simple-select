@@ -1,0 +1,12 @@
+.selectedDisplay {
+  --border: 1px solid blue;
+  display: inline-block;
+  position: relative;
+  margin: 0.5em 0 0.5em 0.5em;
+  text-align: left;
+}
+.mySelectDefault.fixedHeight .selectedDisplay {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

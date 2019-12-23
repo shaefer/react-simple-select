@@ -1,0 +1,43 @@
+.mySelectDefault .mySelectDefaultOptions {
+  --display: none;
+  background-color: white; /* pure style...if you make this transparent it will not really cover up things beneath it when it pops open*/
+  border: 1px solid slategray;
+
+  text-align: left; /*you should align your options differently if you really want to*/
+
+  /*these 3 entries place the option container directly below the selection box*/
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  width: 100%; /*option list is officially inside the "fieldset" box so this width ensures the options are the same width as the selection ctonatiner...which isn't necessary*/
+  max-height: 400px; /*having some max height is not strictly necessary, but usually preferable for user experience.*/
+  overflow-y: scroll; /*ensures options are scrollable if there are more than height of container*/
+
+  border-radius: 0 0 0.5em 0.5em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /*Make option list appear to be a bit 3-dimensional*/
+
+  z-index: 1000; /*ensure that container for options is on top of everything else*/
+}
+.mySelectDefault.selectOpen .mySelectDefaultOptions {
+  display: block;
+}
+.mySelectDefault.selectClosed .mySelectDefaultOptions {
+  display: none;
+}
+.mySelectDefault .mySelectDefaultOptions div {
+  padding: 0.5em 0 0.5em 0.5em;
+  cursor: pointer;
+}
+.mySelectDefault .mySelectDefaultOptions div:hover {
+  background-color: rgb(196, 221, 255);
+}
+.mySelectDefault.roundedCorners .mySelectDefaultOptions div:hover {
+  border-radius: 0.8em;
+}
+.mySelectDefault .mySelectDefaultOptions div:active {
+  background-color: rgb(224, 237, 255);
+}
+.mySelectDefault.roundedCorners .mySelectDefaultOptions div:active {
+  border-radius: 0.8em;
+}

@@ -1,0 +1,26 @@
+.mySelectDefault .cancelContainer {
+  display: none;
+  margin-right: 2.5em;
+}
+.mySelectDefault.valueSelected .cancelContainer {
+  display: inline-block;
+}
+.cancelContainer {
+  --border: 1px solid gray;
+  display: inline-block;
+  margin-left: 0.5em;
+  position: relative;
+  cursor: pointer;
+  --padding: 0.2em 0.4em;
+}
+.cancelContainer:hover .cancelContent {
+  color: lightgray;
+}
+.cancelContainer:active .cancelContent {
+  color: lightblue;
+}
+.cancelContent {
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1em;
+}

@@ -1,0 +1,32 @@
+.mySelectDefault {
+  display: flex;
+  position: relative;
+}
+
+/*TODO: Extract out variable styles into separate class: e.g. roundedCorners*/
+.mySelectDefault div.fieldset {
+  position: relative; /*all the other pieces of this component (legend, options, selectedvaluedisplay) are all inside so we want to have their placement be relative*/
+  width: 100%; /*fieldset is inside the top container .mySelectDefault...so this should probably always be 100%...widths are set on the top container and can be managed with component props*/
+
+  border: 1px solid slategray;
+  background-color: white;
+  margin-top: 0.55em; /*needed to space next items below .5em should nearly overlap with something above it*/
+  padding: 0.2em 0.2em 0.2em 0.2em; /*the right padding is much larger to allow for the absolute positioning of the dropdowncontainer*/
+
+  min-height: 2.2em; /*this is here to handle empty state not shrinking the field set too much. You can remove it this if you don't mind an empty select being compressed.*/
+  min-width: 200px;
+
+  /*these 2 make placement and alignment of selected values and the cancel button easy*/
+  display: flex;
+  align-items: center;
+}
+.mySelectDefault.roundedCorners {
+  border-radius: 0.5em; /*if you change this style you should also change the border radii for downArrowContainer as they need to match to make things look nice.*/
+}
+
+.mySelectDefault.roundedCorners div.fieldset {
+  border-radius: 0.5em;
+}
+.mySelectDefault.selectOpen.roundedCorners div.fieldset {
+  border-radius: 0.5em 0.5em 0 0;
+}

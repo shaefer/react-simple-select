@@ -1,0 +1,68 @@
+//https://xifh2.csb.app/
+import React from "react";
+import ReactDOM from "react-dom";
+import SimpleSelect from "./SimpleSelect";
+
+import "./styles.css";
+
+function App() {
+  const specialVal = { test: "valueObject" };
+  const options = [
+    {
+      label: "Something Else That is Extra Long and Probably Won't fit",
+      value: "Something Else 4"
+    },
+    { label: "Option 1", value: "Option 1" },
+    { label: "Option 2", value: 2 },
+    { label: "Something Else", value: "Something Else" },
+    { label: "Something Else", value: "Something Else" },
+    { label: "Something Else", value: "Something Else" },
+    { label: "New Option", value: specialVal }
+  ];
+  const lotsOfOpts = [...Array(1000).keys()].map(x => {
+    return { value: x, label: "Label" + x };
+  });
+  const onChange = (e, value, fullOption) => {
+    console.log("Component val and fullOpt", value, fullOption);
+  };
+  return (
+    <div className="App">
+      <h1>Simple, Styleable, React Select Component</h1>
+      <h3 style={{ textAlign: "left" }}>
+        <ul>
+          <li>Small codebase - easily customized</li>
+          <li>Easily styled with basic css with lots of documentation</li>
+          <li>Fluid or fixed width + height!</li>
+          <li>Mobile Friendly</li>
+          <li>
+            Fast. Renders quickly &lt;30ms in most browsers even with 1000+
+            options
+          </li>
+        </ul>
+      </h3>
+      <SimpleSelect
+        id="1"
+        options={lotsOfOpts}
+        legendLabel="Select things"
+        width="200px"
+        onChange={onChange}
+        defaultValue="Some value that doesn't exist" //needs to match the value prop of at least one value or it will default to blank (if we ever support turning off the cancel button then we will default ot a non-error state by giving back first option).
+        cornerStyle="Other" /*the classname to apply to the apply in place of the roundedCorners default style*/
+      />
+      <SimpleSelect
+        options={options} //required
+        legendLabel="Select things 2" //or blank for "Select..."
+        width="" //or blank for 100%
+        fixedHeight="true" //or "true"
+        onChange={onChange} //optional
+        defaultValue={specialVal} // matches an option by reference (so if it is an object you will need to pass in the actual object connected with the option)...otherwise it will default to first option. (trying to avoid error states on iniital render.)
+      />
+      <SimpleSelect
+        options={options} //Simplest version
+      />
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
