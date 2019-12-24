@@ -27,7 +27,7 @@ function App() {
   };
   return (
     <div className="App">
-      <h1>Simple, Styleable, React Select Component</h1>
+      <h1>Simple, Stylable, React Select Component</h1>
       <h3 style={{ textAlign: "left" }}>
         <ul>
           <li>Small codebase - easily customized</li>
