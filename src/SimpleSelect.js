@@ -148,7 +148,7 @@ class SimpleSelect extends React.Component {
     const style = {
       width: this.state.width ? this.state.width : "100%"
     };
-    const fixedHeightClassName = this.props.fixedHeight ? this.props.fixedHeight : "";
+    const fixedHeightClassName = this.props.fixedHeight ? "fixedHeight" : "";
     const cornerClassName = this.props.hasSharpCorners ? "" : "roundedCorners";
     const selectOpenClosedClass = this.state.selectOpen ? "selectOpen" : "selectClosed";
     const valueSelected = this.state.currentOptionSelected.value === "" ? "" : "valueSelected";

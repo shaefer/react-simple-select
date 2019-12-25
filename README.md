@@ -7,7 +7,7 @@
 ## Purpose:
 I wanted a simple React component that wasn't bogged down in all the extras. Something I could easily style and extend. Something that even if I did build in some additional features I could do it in a way that didn't compromise my original simple, stylable component. It also needed to do enough easily so as to be worth creating a better starting point for future me and possibly even others.
 
-1. Simplicity
+## 1. Simplicity
 ```javascript
 const options = [
     {value: 1, label: 'Option 1'},
@@ -15,20 +15,20 @@ const options = [
     {value: {complex: 'object', moreProps: 'hello'}, label: 'Option 3'}
 ]
 const onChange = (event, val, fullOption) => {
-    
+    //triggered on select of new item and on cancellation of an item.
 }
 ```
 ```html
 <SimpleSelect options={options} onChange={onChange}/>
 ```
 
-2. Easy Custom Styling
+## 2. Easy Custom Styling
 
 A few basic props for those that fear or despise CSS.
 ```html
 <SimpleSelect options={options} width='200px'/> //Fixed Width (Fluid by default)
-<SimpleSelect options={options} fixedHeight="true"/> //Fixed Height (Fluid by default)
-<SimpleSelect options={options} cornerStyle="none"> //Standard Corners (Rounded by default)
+<SimpleSelect options={options} fixedHeight/> //Fixed Height - assumes single line of text with ellipsis (Fluid by default)
+<SimpleSelect options={options} hasSharpCorners> //Standard Corners (Rounded by default)
 ```
 
 CSS is divided and commented to provide the simplest way to style or change any portion of the component easily.
@@ -48,9 +48,16 @@ div.mySelectDefault .fieldset .legend {
 }
 ```
 
-3. Mobile
+## 3. Mobile
 It works out of the box...
 
+---
+
+## Getting Started
+
+Since this is a create-react-scripts project you can clone the project, npm install, and npm start.
+
+---
 
 Other Documentation:
 ### onChange

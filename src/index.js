@@ -53,8 +53,8 @@ function App() {
       <SimpleSelect
         options={options} //required
         legendLabel="Select things 2" //or blank for "Select..."
-        width="" //or blank for 100%
-        fixedHeight="true" //or "true"
+        width="300px" //or blank for 100%
+        fixedHeight //height is fluid by default
         onChange={onChange} //optional
         defaultValue={specialVal} // matches an option value object by reference (so if the value IS an object you will need to pass in the actual object connected with the option. i.e. ===). If no match is found will leave blank.
       />
