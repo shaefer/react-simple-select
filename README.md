@@ -22,7 +22,8 @@ const onChange = (event, val, fullOption) => {
 <SimpleSelect options={options} onChange={onChange}/>
 ```
 
-2. Easy of Custom Styling
+2. Easy Custom Styling
+
 A few basic props for those that fear or despise CSS.
 ```html
 <SimpleSelect options={options} width='200px'/> //Fixed Width (Fluid by default)

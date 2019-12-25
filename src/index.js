@@ -48,6 +48,7 @@ function App() {
         onChange={onChange}
         defaultValue="Some value that doesn't exist" //needs to match the value prop of at least one value or it will default to blank (if we ever support turning off the cancel button then we will default ot a non-error state by giving back first option).
         cornerStyle="Other" /*the classname to apply to the apply in place of the roundedCorners default style*/
+        hasSharpCorners
       />
       <SimpleSelect
         options={options} //required

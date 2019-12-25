@@ -25,9 +25,6 @@ class SimpleSelect extends React.Component {
       props.options.find(x => x.value === props.defaultValue)
         ? props.options.find(x => x.value === props.defaultValue)
         : blankValue;
-    const cornerClassName = props.cornerStyle
-      ? props.cornerStyle
-      : "roundedCorners";
 
     this.state = {
       createTime: createTime,
@@ -39,8 +36,6 @@ class SimpleSelect extends React.Component {
       selectOpen: false,
       options: props.options ? props.options : [],
       width: props.width ? props.width : "",
-      fixedHeight: props.fixedHeight ? props.fixedHeight : "",
-      cornerClassName: cornerClassName
     };
   }
 
@@ -149,22 +144,18 @@ class SimpleSelect extends React.Component {
         </div>
       );
     });
-    const selectOpenClosedClass = this.state.selectOpen
-      ? "selectOpen"
-      : "selectClosed";
+
     const style = {
       width: this.state.width ? this.state.width : "100%"
     };
-    const fixedHeightClassName = this.state.fixedHeight ? "fixedHeight" : "";
-    const valueSelected =
-      this.state.currentOptionSelected.value === "" ? "" : "valueSelected";
+    const fixedHeightClassName = this.props.fixedHeight ? this.props.fixedHeight : "";
+    const cornerClassName = this.props.hasSharpCorners ? "" : "roundedCorners";
+    const selectOpenClosedClass = this.state.selectOpen ? "selectOpen" : "selectClosed";
+    const valueSelected = this.state.currentOptionSelected.value === "" ? "" : "valueSelected";
+    const coreCssClassNames = ['mySelectDefault', selectOpenClosedClass, valueSelected, fixedHeightClassName, cornerClassName];
+
     return (
-      <div
-        className={`mySelectDefault ${selectOpenClosedClass} ${valueSelected} ${fixedHeightClassName} ${
-          this.state.cornerClassName
-        }`}
-        style={style}
-      >
+      <div className={coreCssClassNames.filter(x => x).join(" ")} style={style}>
         <div className="fieldset">
           <div className="legend">{this.state.legendLabel}</div>
           <div className="selectedDisplay">
