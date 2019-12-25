@@ -1,4 +1,4 @@
-.mySelectDefault div.fieldset .legend {
+.mySelectDefault .fieldset .legend {
   /*these 3 defs are totally for style. I also like having no border.*/
   border: 0px solid slategray;
   background: white;
@@ -12,6 +12,6 @@
   padding: 0 0.5em;
   margin-left: 0.5em;
 }
-.mySelectDefault.roundedCorners div.fieldset .legend {
+.mySelectDefault.roundedCorners .fieldset .legend {
   border-radius: 0.5em;
 }

@@ -4,7 +4,7 @@
 }
 
 /*TODO: Extract out variable styles into separate class: e.g. roundedCorners*/
-.mySelectDefault div.fieldset {
+.mySelectDefault .fieldset {
   position: relative; /*all the other pieces of this component (legend, options, selectedvaluedisplay) are all inside so we want to have their placement be relative*/
   width: 100%; /*fieldset is inside the top container .mySelectDefault...so this should probably always be 100%...widths are set on the top container and can be managed with component props*/
 
@@ -24,9 +24,9 @@
   border-radius: 0.5em; /*if you change this style you should also change the border radii for downArrowContainer as they need to match to make things look nice.*/
 }
 
-.mySelectDefault.roundedCorners div.fieldset {
+.mySelectDefault.roundedCorners .fieldset {
   border-radius: 0.5em;
 }
-.mySelectDefault.selectOpen.roundedCorners div.fieldset {
+.mySelectDefault.selectOpen.roundedCorners .fieldset {
   border-radius: 0.5em 0.5em 0 0;
 }

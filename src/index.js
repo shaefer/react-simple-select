@@ -55,10 +55,10 @@ function App() {
         width="" //or blank for 100%
         fixedHeight="true" //or "true"
         onChange={onChange} //optional
-        defaultValue={specialVal} // matches an option by reference (so if it is an object you will need to pass in the actual object connected with the option)...otherwise it will default to first option. (trying to avoid error states on iniital render.)
+        defaultValue={specialVal} // matches an option value object by reference (so if the value IS an object you will need to pass in the actual object connected with the option. i.e. ===). If no match is found will leave blank.
       />
       <SimpleSelect
-        options={options} //Simplest version
+        options={options} onChange={onChange} //Simplest version (you could omit onChange but then how would you know what value the component currently is holding?)
       />
     </div>
   );
