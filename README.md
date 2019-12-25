@@ -31,13 +31,15 @@ A few basic props for those that fear or despise CSS.
 <SimpleSelect options={options} hasSharpCorners> //Standard Corners (Rounded by default)
 ```
 
-CSS is divided and commented to provide the simplest way to style or change any portion of the component easily.
-You can inject this CSS however you app works just keeping in mind CSS Specificity. If you shoot to just include your custom CSS after the component and use the same style definition and match specificity your CSS will win. Otherwise you can win by simply adding 1 point (tag name) to any definition and your specificity will win.
+CSS is divided into a separate file for each part of the component and added extra comments to guide novices on what to change and wear to get good results. We want to provide the simplest way to style or change any portion of the component easily.
+You can inject your custom css and use the same definitions while adding a single tagname to increase CSS specificity by 1. The examples below can be added to styles.css and just work (they are 1 point more specific than the default styles). The component also behaves like a normal div...no odd behavior if placed inside another container regardless of positioning or style. 
 ```css
+/* Default in SimpleSelect.css */
 div.mySelectDefault .fieldset {
   padding: 0.5em;
   font-size: 1.2em; /*All the padding is em-based meaning if you change the font-size first you may find you are happy with the relative padding.*/
 }
+/* Default in SimpleSelect-legend.css */
 div.mySelectDefault .fieldset .legend {
   background-color: lime;
   padding: 0em 0.5em;
