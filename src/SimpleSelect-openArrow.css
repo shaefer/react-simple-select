@@ -1,31 +1,12 @@
-.mySelectDefault div.fieldset .downArrowContainer {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 2em;
+.mySelectDefault .downArrowContainer {
+  height: 20px;
+  margin-left: auto;
   cursor: pointer;
 }
-
-.mySelectDefault.roundedCorners div.fieldset .downArrowContainer {
-  border-radius: 0 0.5em 0.5em 0;
+.downArrowContent svg {
+  fill: #aaa;
+  transition: fill 0.15s ease;
 }
-.mySelectDefault.selectOpen.roundedCorners div.fieldset .downArrowContainer {
-  border-radius: 0 0.5em 0 0;
-}
-
-.mySelectDefault div.fieldset .downArrowContainer:hover {
-  background-color: lightgrey;
-}
-
-.mySelectDefault div.fieldset .downArrowContainer:active .downArrowContent {
-  color: lightblue;
-}
-
-.downArrowContent {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.downArrowContent svg:hover {
+  fill: darkslategray;
 }

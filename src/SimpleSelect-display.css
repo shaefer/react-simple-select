@@ -1,9 +1,15 @@
+.mainSectionWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
 .selectedDisplay {
-  --border: 1px solid blue;
   display: inline-block;
   position: relative;
   margin: 0.5em 0 0.5em 0.5em;
   text-align: left;
+  vertical-align: middle;
 }
 .mySelectDefault.fixedHeight .selectedDisplay {
   overflow: hidden;

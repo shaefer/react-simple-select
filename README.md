@@ -68,4 +68,7 @@ onChange fire appropriately when a new value is selected and when a value is can
 ## Why:
 Why did I build this: I'll be honest I built this component after rage quitting use of all 3 of the most popular react select components online. They all do a lot of things and have a ton of features, but they are all painful to work with and painful to style (surprise...that is often the cost of complexity.) That is not to say these other options aren't great...if you need a lot of bells and whistles that might be the way to go. (Or if you just like the idea of spending more time trying to reduce the padding on a component than you did plugging it into your app). This component is meant to be a simple starting point. I did not set out to ["beat"](https://xkcd.com/844/) all those other components I do not underestimate the amount of work that goes into supporting a complex widget with dozens of internal features. I have great empathy around how we found ourselves in this current state, but not so much as to prevent a rage-driven coding frenzy that produced this first iteration of a new react-simple-select component. ([just what we all need...](https://xkcd.com/927/))
 
+## Other Simple Selects Worth Looking at
+[React-Simple-Select](https://github.com/gargrave/react-simple-select#readme)
+
 

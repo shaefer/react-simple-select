@@ -1,7 +1,7 @@
 .mySelectDefault .mySelectDefaultOptions {
   --display: none;
   background-color: white; /* pure style...if you make this transparent it will not really cover up things beneath it when it pops open*/
-  border: 1px solid slategray;
+  border: 1px solid #ccc;
 
   text-align: left; /*you should align your options differently if you really want to*/
 
@@ -30,13 +30,13 @@
   cursor: pointer;
 }
 .mySelectDefault .mySelectDefaultOptions div:hover {
-  background-color: rgb(196, 221, 255);
+  background-color: #eee;
 }
 .mySelectDefault.roundedCorners .mySelectDefaultOptions div:hover {
   border-radius: 0.8em;
 }
 .mySelectDefault .mySelectDefaultOptions div:active {
-  background-color: rgb(224, 237, 255);
+  background-color: #ddd;
 }
 .mySelectDefault.roundedCorners .mySelectDefaultOptions div:active {
   border-radius: 0.8em;

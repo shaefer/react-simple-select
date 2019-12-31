@@ -8,7 +8,7 @@
   position: relative; /*all the other pieces of this component (legend, options, selectedvaluedisplay) are all inside so we want to have their placement be relative*/
   width: 100%; /*fieldset is inside the top container .mySelectDefault...so this should probably always be 100%...widths are set on the top container and can be managed with component props*/
 
-  border: 1px solid slategray;
+  border: 1px solid #ccc;
   background-color: white;
   margin-top: 0.55em; /*needed to space next items below .5em should nearly overlap with something above it*/
   padding: 0.2em 0.2em 0.2em 0.2em; /*the right padding is much larger to allow for the absolute positioning of the dropdowncontainer*/
