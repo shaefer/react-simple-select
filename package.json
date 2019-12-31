@@ -1,5 +1,5 @@
 {
-  "name": "customreactselect",
+  "name": "npm ",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
@@ -10,6 +10,7 @@
     "react-scripts": "^3.3.0"
   },
   "devDependencies": {
+    "semantic-release": "^15.14.0",
     "typescript": "3.3.3"
   },
   "scripts": {
