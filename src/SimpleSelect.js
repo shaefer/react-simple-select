@@ -17,7 +17,6 @@ class SimpleSelect extends React.Component {
     this.openSelect = this.openSelect.bind(this);
     this.handleOutsideOptionsClick = this.handleOutsideOptionsClick.bind(this);
 
-    console.log(props);
     const optionValidation = this.checkOptionType(props.options);
     const blankValue = { value: "", label: "" };
     const defaultValue =
@@ -42,9 +41,9 @@ class SimpleSelect extends React.Component {
   componentDidMount() {
     document.addEventListener("mousedown", this.handleOutsideOptionsClick);
     const finishTime = new Date().getTime();
-    console.log(
-      `Id: ${this.props.id} CreateTime: ${finishTime - this.state.createTime}ms`
-    );
+    // console.log(
+    //   `Id: ${this.props.id} CreateTime: ${finishTime - this.state.createTime}ms`
+    // );
   }
 
   componentWillUnmount() {
