@@ -1,12 +1,11 @@
 .mySelectDefault .cancelContainer {
   display: none;
-  margin: 0.5em 2.5em 0.5em 0.5em;
+  margin: 0.5em 0.5em 0.5em 0.5em;
 }
 .mySelectDefault.valueSelected .cancelContainer {
   display: inline-block;
 }
 .cancelContainer {
-  border: 1px solid gray;
   display: inline-block;
   position: relative;
   cursor: pointer;
@@ -22,4 +21,12 @@
 .cancelContent {
   display: inline-block;
   height: 20px;
+}
+
+.cancelContent svg {
+  fill: #aaa;
+  transition: fill 0.15s ease;
+}
+.cancelContent svg:hover {
+  fill: darkslategray;
 }

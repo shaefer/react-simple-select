@@ -128,6 +128,7 @@ class SimpleSelect extends React.Component {
       currentOptionSelected: this.state.blankValue,
       selectOpen: false
     });
+    e.stopPropagation(); //since cancel and dropdown are part of same dom tree we don't want the open/close to fire as well.
   }
 
   render() {
@@ -158,7 +159,7 @@ class SimpleSelect extends React.Component {
       <div className={coreCssClassNames.filter(x => x).join(" ")} style={style}>
         <div className="fieldset">
           <div className="legend">{this.state.legendLabel}</div>
-          <div className="mainSectionWrapper">
+          <div className="mainSectionWrapper" onClick={this.openSelect} ref={this.dropdownButton}>
             <div className="selectedDisplay">
               {this.state.currentOptionSelected.label}
             </div>
@@ -175,12 +176,8 @@ class SimpleSelect extends React.Component {
                 </svg>
               </div>
             </div>
-            <div
-              className="downArrowContainer2"
-              onClick={this.openSelect}
-              ref={this.dropdownButton}
-            >
-              <div className="downArrowContent2">
+            <div className="downArrowContainer">
+              <div className="downArrowContent">
                 <svg
                   aria-hidden="true"
                   focusable="false"
