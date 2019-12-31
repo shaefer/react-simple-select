@@ -61,6 +61,9 @@ function App() {
       <SimpleSelect
         options={options} onChange={onChange} //Simplest version (you could omit onChange but then how would you know what value the component currently is holding?)
       />
+      <SimpleSelect
+        options={options} onChange={onChange} nonCancelable defaultValue={2} //Non-cancelable 
+      />
     </div>
   );
 }
