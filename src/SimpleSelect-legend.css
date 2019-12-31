@@ -2,6 +2,8 @@
   /*these 3 defs are totally for style. I also like having no border.*/
   border: 0px solid slategray;
   background: white;
+  font-style: italic;
+  color: #555;
 
   /*these 3 defs are what makes the legend overlap the top edge of the selection container.*/
   position: absolute;
