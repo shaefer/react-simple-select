@@ -35,7 +35,7 @@ function App() {
           <li>Fluid or fixed width and height!</li>
           <li>Mobile Friendly</li>
           <li>
-            Fast. Renders quickly &lt;30ms in most browsers even with 1000+
+            Fast. Renders quickly 2-5ms for most use cases. &lt;30ms even with 1000+
             options
           </li>
         </ul>
