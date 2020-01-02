@@ -32,11 +32,11 @@ function App() {
   };
   const flagOptionLabelRender = (opt) => {
     const flagClass = `flag ${opt.flag}`;
-    return <React.Fragment><span className={flagClass}></span><span>{opt.label}</span></React.Fragment>;
+    return <React.Fragment><span className={flagClass}></span><span style={{marginLeft: '0.5em'}}>{opt.label}</span></React.Fragment>;
   }
   return (
     <div className="App">
-      <h1>Simple, Stylable, React Select Component</h1>
+      <h1>Simple, Styleable, React Select Component</h1>
       <h3 style={{ textAlign: "left" }}>
         <ul>
           <li>Small codebase - easily customized</li>
