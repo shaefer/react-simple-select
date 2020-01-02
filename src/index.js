@@ -51,6 +51,7 @@ function App() {
         hasSharpCorners
       />
       <SimpleSelect
+        id="2"
         options={options} //required
         legendLabel="Select things 2" //or blank for "Select..."
         width="300px" //or blank for 100%
@@ -59,10 +60,10 @@ function App() {
         defaultValue={specialVal} // matches an option value object by reference (so if the value IS an object you will need to pass in the actual object connected with the option. i.e. ===). If no match is found will leave blank.
       />
       <SimpleSelect
-        options={options} onChange={onChange} //Simplest version (you could omit onChange but then how would you know what value the component currently is holding?)
+        id="3" options={options} onChange={onChange} //Simplest version (you could omit onChange but then how would you know what value the component currently is holding?)
       />
       <SimpleSelect
-        options={options} onChange={onChange} nonCancelable defaultValue={2} //Non-cancelable 
+        id="4" options={options} onChange={onChange} nonCancelable defaultValue={2} legendLabel="Select nonCancelable" width="200px"//Non-cancelable 
       />
     </div>
   );

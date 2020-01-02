@@ -1,4 +1,5 @@
 # React-Simple-Select
+[![Build Status](https://travis-ci.com/shaefer/react-simple-select.svg?branch=master)](https://travis-ci.com/shaefer/react-simple-select)
 ## A simple select react component designed for 3 things
 1. simplicity 
 2. ease of custom styling 

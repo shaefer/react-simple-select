@@ -16,6 +16,7 @@ class SimpleSelect extends React.Component {
     this.cancelSelection = this.cancelSelection.bind(this);
     this.openSelect = this.openSelect.bind(this);
     this.handleOutsideOptionsClick = this.handleOutsideOptionsClick.bind(this);
+    this.renderOption = this.renderOption.bind(this);
 
     const optionValidation = this.checkOptionType(props.options);
     const blankValue = { value: "", label: "" };
@@ -96,15 +97,15 @@ class SimpleSelect extends React.Component {
 
   optionSelected(e) {
     console.log(e.target);
-    const optionByIndex = this.state.options[
-      parseInt(e.target.getAttribute("index"), 10)
-    ];
+    const optionIndex = parseInt(e.target.getAttribute("index"), 10);
+    const optionByIndex = this.state.options[optionIndex];
     if (this.props.onChange) {
       this.props.onChange(e, optionByIndex.value, optionByIndex);
     }
     this.setState({
       ...this.state,
       currentOptionSelected: optionByIndex,
+      currentOptionIndex: optionIndex,
       selectOpen: false
     });
   }
@@ -130,19 +131,24 @@ class SimpleSelect extends React.Component {
     e.stopPropagation(); //since cancel and dropdown are part of same dom tree we don't want the open/close to fire as well.
   }
 
+  /* We could eliminate the need for the index if we just matched the first option that has the exact value... */
+  renderOption(opt, idx) {
+    return (
+      <div
+        onClick={this.optionSelected}
+        key={`_select_opts${idx}`}
+        index={idx}
+      >
+        {opt.label}
+      </div>
+    );
+  }
+
   render() {
     if (!this.state.validOptions)
       return <div>Invalid Options: {this.state.invalidReason}</div>;
     const opts = this.state.options.map((x, idx) => {
-      return (
-        <div
-          onClick={this.optionSelected}
-          key={`_select_opts${idx}`}
-          index={idx}
-        >
-          {x.label}
-        </div>
-      );
+      return this.renderOption(x, idx);
     });
 
     const style = {
@@ -168,7 +174,7 @@ class SimpleSelect extends React.Component {
         </div>
       </div>
     );
-    const cancelSection = (this.props.notCancelable) ? cancelButton : '';
+    const cancelSection = this.props.nonCancelable ? '' : cancelButton;
     return (
       <div className={coreCssClassNames.filter(x => x).join(" ")} style={style}>
         <div className="fieldset">
