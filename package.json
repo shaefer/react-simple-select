@@ -2,6 +2,8 @@
   "name": "react-simple-styleable-select",
   "version": "1.0.0",
   "description": "",
+  "license": "MIT",
+  "author": "Daniel Shaefer",
   "keywords": ["react", "select", "simple", "mobile", "responsive"],
   "main": "src/index.js",
   "dependencies": {
