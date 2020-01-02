@@ -63,7 +63,9 @@ function App() {
         id="3" options={options} onChange={onChange} //Simplest version (you could omit onChange but then how would you know what value the component currently is holding?)
       />
       <SimpleSelect
-        id="4" options={options} onChange={onChange} nonCancelable defaultValue={2} legendLabel="Select nonCancelable" width="200px"//Non-cancelable 
+        id="4" options={options} onChange={onChange} 
+        nonCancelable defaultValue={2} legendLabel="Select nonCancelable" 
+        width="200px"//Non-cancelable 
       />
     </div>
   );
