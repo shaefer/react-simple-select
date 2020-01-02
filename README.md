@@ -1,6 +1,7 @@
 # React-Simple-Select
 [![Build Status](https://travis-ci.com/shaefer/react-simple-select.svg?branch=master)](https://travis-ci.com/shaefer/react-simple-select)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![npm version](https://badge.fury.io/js/react-simple-styleable-select.svg)](https://badge.fury.io/js/react-simple-styleable-select)
 ## A simple select react component designed for 3 things
 1. simplicity 
 2. ease of custom styling 
