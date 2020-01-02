@@ -32,7 +32,7 @@ function App() {
         <ul>
           <li>Small codebase - easily customized</li>
           <li>Easily styled with basic css with lots of documentation</li>
-          <li>Fluid or fixed width + height!</li>
+          <li>Fluid or fixed width and height!</li>
           <li>Mobile Friendly</li>
           <li>
             Fast. Renders quickly &lt;30ms in most browsers even with 1000+
