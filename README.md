@@ -7,7 +7,7 @@
 3. Mobile - (Works for both mobile and web out of the box)
 
 ## Purpose:
-I wanted a simple React component that wasn't bogged down in all the extras. Something I could easily style and extend. Something that even if I did build in some additional features I could do it in a way that didn't compromise my original simple, stylable component. It also needed to do enough easily so as to be worth creating a better starting point for future me and possibly even others.
+I wanted a simple React component that wasn't bogged down in all the extras. Something I could easily style and extend. Something that even if I did build in some additional features I could do it in a way that didn't compromise my original simple, styleable component. It also needed to do enough easily so as to be worth creating a better starting point for future me and possibly even others.
 
 ## 1. Simplicity
 ```javascript
@@ -66,6 +66,12 @@ Since this is a create-react-scripts project you can clone the project, npm inst
 Other Documentation:
 ### onChange
 onChange fire appropriately when a new value is selected and when a value is canceled. Passing in your own onChange event will receive the core event, theCurrentVal of the option, and the fullOption (in case the label or other option properties are important to you.)
+```javascript
+const myOnChange = (e, val, option) => {
+  //do something useful like setting the state of some other component that houses the Select. 
+  //the full option is passed because we allow the option value to be a complex object not just a simple text value. 
+}
+```
 
 ## Why:
 Why did I build this: I'll be honest I built this component after rage quitting use of all 3 of the most popular react select components online. They all do a lot of things and have a ton of features, but they are all painful to work with and painful to style (surprise...that is often the cost of complexity.) That is not to say these other options aren't great...if you need a lot of bells and whistles that might be the way to go. (Or if you just like the idea of spending more time trying to reduce the padding on a component than you did plugging it into your app). This component is meant to be a simple starting point. I did not set out to ["beat"](https://xkcd.com/844/) all those other components I do not underestimate the amount of work that goes into supporting a complex widget with dozens of internal features. I have great empathy around how we found ourselves in this current state, but not so much as to prevent a rage-driven coding frenzy that produced this first iteration of a new react-simple-select component. ([just what we all need...](https://xkcd.com/927/))

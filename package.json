@@ -2,7 +2,7 @@
   "name": "react-simple-styleable-select",
   "version": "1.0.0",
   "description": "",
-  "keywords": [],
+  "keywords": ["react", "select", "simple", "mobile", "responsive"],
   "main": "src/index.js",
   "dependencies": {
     "react": "16.12.0",
