@@ -33,7 +33,7 @@ A few basic props for those that fear or despise CSS.
 <SimpleSelect options={options} hasSharpCorners> //Standard Corners (Rounded by default)
 ```
 
-CSS is divided into a separate file for each part of the component and added extra comments to guide novices on what to change and wear to get good results. We want to provide the simplest way to style or change any portion of the component easily.
+CSS is divided into a separate file for each part of the component and added extra comments to guide novices on what to change and where. We want to provide the simplest way to style or change any portion of the component easily. Regardless of your approach to styling components in React.
 You can inject your custom css and use the same definitions while adding a single tagname to increase CSS specificity by 1. The examples below can be added to styles.css and just work (they are 1 point more specific than the default styles). The component also behaves like a normal div...no odd behavior if placed inside another container regardless of positioning or style. 
 ```css
 /* Default in SimpleSelect.css */
