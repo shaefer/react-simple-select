@@ -28,7 +28,7 @@ const onChange = (event, val, fullOption) => {
 
 ## 2. Easy Custom Styling
 
-A few basic props for those that fear or despise CSS.
+A few basic props for those that fear or despise CSS. (I love CSS, so I'm happy to share.)
 ```html
 <SimpleSelect options={options} width='200px'/> //Fixed Width (Fluid by default)
 <SimpleSelect options={options} fixedHeight/> //Fixed Height - assumes single line of text with ellipsis (Fluid by default)
@@ -53,6 +53,24 @@ div.mySelectDefault .fieldset .legend {
   font-variant: small-caps;
 }
 ```
+
+The component pieces: The outer wrapper (.mySelectDefault), The div made to look like a fieldset(.fieldset), the legend(.legend), the currently displayed option (.selectedDisplay), the option list(.mySelectDefaultOptions), the dropdown arrow, the cancel button. 
+```html
+<div class="mySelectDefault">
+    <div class="fieldset">
+        <div class="legend"></div>
+        <div class="mainSectionWrapper">
+          <div class="selectedDisplay"></div>
+          <div class="cancelContainer"></div>
+          <div class="downArrowContainer"></div>
+        </div>
+        <div class="mySelectDefaultOptions"></div>
+    </div>
+</div>
+```
+
+
+
 
 ## 3. Mobile
 It works out of the box...

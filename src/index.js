@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import SimpleSelect from "./SimpleSelect";
 
 import "./styles.css";
+import "./flags.css"
 
 function App() {
   const specialVal = { test: "valueObject" };
@@ -19,12 +20,20 @@ function App() {
     { label: "Something Else", value: "Something Else" },
     { label: "New Option", value: specialVal }
   ];
+  const flagOptions = [
+    {label: "United States", value: "US", flag: "flag-us"},
+    {label: "United Kingdom", value: "UK", flag: "flag-gb"}
+  ];
   const lotsOfOpts = [...Array(1000).keys()].map(x => {
     return { value: x, label: "Label" + x };
   });
   const onChange = (e, value, fullOption) => {
     console.log("Component val and fullOpt", value, fullOption);
   };
+  const flagOptionLabelRender = (opt) => {
+    const flagClass = `flag ${opt.flag}`;
+    return <React.Fragment><span className={flagClass}></span><span>{opt.label}</span></React.Fragment>;
+  }
   return (
     <div className="App">
       <h1>Simple, Stylable, React Select Component</h1>
@@ -66,6 +75,9 @@ function App() {
         id="4" options={options} onChange={onChange} 
         nonCancelable defaultValue={2} legendLabel="Select nonCancelable" 
         width="200px"//Non-cancelable 
+      />
+      <SimpleSelect id="5" options={flagOptions} onChange={onChange} width="300px" legendLabel="Custom Option Label Render"
+        renderOptionLabel={flagOptionLabelRender}
       />
     </div>
   );

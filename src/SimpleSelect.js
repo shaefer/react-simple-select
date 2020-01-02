@@ -17,13 +17,22 @@ class SimpleSelect extends React.Component {
     this.openSelect = this.openSelect.bind(this);
     this.handleOutsideOptionsClick = this.handleOutsideOptionsClick.bind(this);
     this.renderOption = this.renderOption.bind(this);
+    this.renderOptionLabel = this.renderOptionLabel.bind(this);
 
     const optionValidation = this.checkOptionType(props.options);
+
+
+    //add index to each option for ease of rendering and value retrieval (this is what allows us to let value be any data type)
+    const initialOptions = props.options ? props.options : [];
+    const optionsWithIndexProp = initialOptions.map((x, idx) => {
+      x._idx = idx;
+      return x;
+    });
     const blankValue = { value: "", label: "" };
     const defaultValue =
       props.defaultValue &&
-      props.options.find(x => x.value === props.defaultValue)
-        ? props.options.find(x => x.value === props.defaultValue)
+      optionsWithIndexProp.find(x => x.value === props.defaultValue)
+        ? optionsWithIndexProp.find(x => x.value === props.defaultValue)
         : blankValue;
 
     this.state = {
@@ -34,7 +43,7 @@ class SimpleSelect extends React.Component {
       currentOptionSelected: defaultValue,
       legendLabel: props.legendLabel ? props.legendLabel : "Select...",
       selectOpen: false,
-      options: props.options ? props.options : [],
+      options: optionsWithIndexProp,
       width: props.width ? props.width : "",
     };
   }
@@ -95,9 +104,14 @@ class SimpleSelect extends React.Component {
     }
   }
 
+  findOptionWrapper(el) {
+    if (el.getAttribute("index")) return el;
+    return this.findOptionWrapper(el.parentNode);
+  }
+
   optionSelected(e) {
-    console.log(e.target);
-    const optionIndex = parseInt(e.target.getAttribute("index"), 10);
+    const optionWrapper = this.findOptionWrapper(e.target)
+    const optionIndex = parseInt(optionWrapper.getAttribute("index"), 10);
     const optionByIndex = this.state.options[optionIndex];
     if (this.props.onChange) {
       this.props.onChange(e, optionByIndex.value, optionByIndex);
@@ -119,7 +133,6 @@ class SimpleSelect extends React.Component {
   }
 
   cancelSelection(e) {
-    console.log("cancel button");
     if (this.props.onChange) {
       this.props.onChange(e);
     }
@@ -131,15 +144,23 @@ class SimpleSelect extends React.Component {
     e.stopPropagation(); //since cancel and dropdown are part of same dom tree we don't want the open/close to fire as well.
   }
 
-  /* We could eliminate the need for the index if we just matched the first option that has the exact value... */
-  renderOption(opt, idx) {
+  renderOptionLabel(opt) {
+    if (this.props.renderOptionLabel && opt != this.state.blankValue) {
+      return this.props.renderOptionLabel(opt);
+    } else {
+      return opt.label;
+    }
+  }
+
+  renderOption(opt) {
     return (
       <div
         onClick={this.optionSelected}
-        key={`_select_opts${idx}`}
-        index={idx}
+        key={`_select_opts${opt._idx}`}
+        index={opt._idx}
+        className={`select_option`}
       >
-        {opt.label}
+        {this.renderOptionLabel(opt)}
       </div>
     );
   }
@@ -147,8 +168,8 @@ class SimpleSelect extends React.Component {
   render() {
     if (!this.state.validOptions)
       return <div>Invalid Options: {this.state.invalidReason}</div>;
-    const opts = this.state.options.map((x, idx) => {
-      return this.renderOption(x, idx);
+    const opts = this.state.options.map(x => {
+      return this.renderOption(x);
     });
 
     const style = {
@@ -181,7 +202,7 @@ class SimpleSelect extends React.Component {
           <div className="legend">{this.state.legendLabel}</div>
           <div className="mainSectionWrapper" onClick={this.openSelect} ref={this.dropdownButton}>
             <div className="selectedDisplay">
-              {this.state.currentOptionSelected.label}
+              {this.renderOptionLabel(this.state.currentOptionSelected)}
             </div>
             {cancelSection}
             <div className="downArrowContainer">
