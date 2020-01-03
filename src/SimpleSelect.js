@@ -6,6 +6,7 @@ import "./SimpleSelect-legend.css";
 import "./SimpleSelect-options.css";
 import "./SimpleSelect-display.css";
 
+//https://jasonwatmore.com/post/2018/04/14/react-npm-how-to-publish-a-react-component-to-npm
 class SimpleSelect extends React.Component {
   constructor(props) {
     const createTime = new Date().getTime();
