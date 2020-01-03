@@ -13,7 +13,7 @@ jobs:
         provider: script
         skip_cleanup: true
         script:
-          - rm -rf dist && mkdir dist &&  babel src/components -d dist --copy-files
+          - rm -rf dist && mkdir dist &&  babel src -d dist --copy-files
       deploy:
         provider: script
         skip_cleanup: true
