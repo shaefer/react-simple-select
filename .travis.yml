@@ -13,7 +13,7 @@ jobs:
         provider: script
         skip_cleanup: true
         script:
-          - rm -rf dist && mkdir dist &&  babel src -d dist --copy-files
+          - npm run prepublish
       deploy:
         provider: script
         skip_cleanup: true
