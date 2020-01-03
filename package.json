@@ -8,6 +8,9 @@
     "type" : "git",
     "url" : "https://github.com/shaefer/react-simple-select"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "react",
     "select",
@@ -44,8 +47,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "files": [
-    "dist"
   ]
 }
