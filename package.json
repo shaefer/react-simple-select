@@ -4,6 +4,10 @@
   "description": "",
   "license": "MIT",
   "author": "Daniel Shaefer",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/shaefer/react-simple-select"
+  },
   "keywords": [
     "react",
     "select",

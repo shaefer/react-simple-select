@@ -13,7 +13,7 @@ jobs:
         provider: script
         skip_cleanup: true
         script:
-          - npm run publish:npm
+          - rm -rf dist && mkdir dist &&  babel src/components -d dist --copy-files
       deploy:
         provider: script
         skip_cleanup: true
