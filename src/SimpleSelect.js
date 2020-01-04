@@ -174,7 +174,8 @@ class SimpleSelect extends React.Component {
     });
 
     const style = {
-      width: this.state.width ? this.state.width : "100%"
+      width: this.state.width ? this.state.width : "100%",
+      display: this.props.inline ? 'inline-block' : 'block'
     };
     const fixedHeightClassName = this.props.fixedHeight ? "fixedHeight" : "";
     const cornerClassName = this.props.hasSharpCorners ? "" : "roundedCorners";

@@ -1,6 +1,7 @@
 .mySelectDefault {
-  display: flex;
   position: relative;
+  margin-right: 0.5em;
+  vertical-align: bottom;
 }
 
 /*TODO: Extract out variable styles into separate class: e.g. roundedCorners*/
@@ -14,7 +15,7 @@
   padding: 0.2em 0.2em 0.2em 0.2em; /*the right padding is much larger to allow for the absolute positioning of the dropdowncontainer*/
 
   min-height: 2.2em; /*this is here to handle empty state not shrinking the field set too much. You can remove it this if you don't mind an empty select being compressed.*/
-  min-width: 200px;
+  min-width: 50px;
 
   /*these 2 make placement and alignment of selected values and the cancel button easy*/
   display: flex;

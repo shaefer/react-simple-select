@@ -1,6 +1,6 @@
 {
   "name": "react-simple-styleable-select",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "description": "",
   "license": "MIT",
   "author": "Daniel Shaefer",
@@ -18,7 +18,7 @@
     "mobile",
     "responsive"
   ],
-  "main": "src/SimpleSelect.js",
+  "main": "dist/SimpleSelect.js",
   "babel": {
     "presets": [
       "@babel/preset-react"
@@ -40,7 +40,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "prepublish": "rm -rf dist && mkdir dist && babel src -d dist --copy-files"
+    "prepublish": "rm -rf dist && babel src"
   },
   "browserslist": [
     ">0.2%",

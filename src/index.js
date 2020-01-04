@@ -36,7 +36,7 @@ function App() {
   }
   return (
     <div className="App">
-      <h1>Simple, Styleable, React Select Component</h1>
+      <h1 style={{ textAlign: 'center'}}>Simple, Styleable, React Select Component</h1>
       <h3 style={{ textAlign: "left" }}>
         <ul>
           <li>Small codebase - easily customized</li>
@@ -77,8 +77,9 @@ function App() {
         width="200px"//Non-cancelable 
       />
       <SimpleSelect id="5" options={flagOptions} onChange={onChange} width="300px" legendLabel="Custom Option Label Render"
-        renderOptionLabel={flagOptionLabelRender}
+        renderOptionLabel={flagOptionLabelRender} inline
       />
+      <div style={{display:'inline-block', height: '2.5em', lineHeight:'2.5em', verticalAlign:'middle', border:'1px solid red'}}>Testing inline positioning</div>
     </div>
   );
 }
