@@ -62,7 +62,6 @@ function App() {
       <SimpleSelect
         id="2"
         options={options} //required
-        legendLabel="Select things 2" //or blank for "Select..."
         width="300px" //or blank for 100%
         fixedHeight //height is fluid by default
         onChange={onChange} //optional

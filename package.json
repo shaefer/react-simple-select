@@ -1,6 +1,6 @@
 {
   "name": "react-simple-styleable-select",
-  "version": "1.1.2",
+  "version": "1.1.4",
   "description": "",
   "license": "MIT",
   "author": "Daniel Shaefer",
@@ -40,7 +40,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "prepublish": "rm -rf dist && babel src"
+    "prepublish": "rm -rf dist && npx babel src -d dist --copy-files"
   },
   "browserslist": [
     ">0.2%",
