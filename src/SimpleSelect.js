@@ -17,6 +17,7 @@ class SimpleSelect extends React.Component {
     this.cancelSelection = this.cancelSelection.bind(this);
     this.openSelect = this.openSelect.bind(this);
     this.handleOutsideOptionsClick = this.handleOutsideOptionsClick.bind(this);
+    this.handleKeyboard = this.handleKeyboard.bind(this);
     this.renderOption = this.renderOption.bind(this);
     this.renderOptionLabel = this.renderOptionLabel.bind(this);
 
@@ -46,11 +47,13 @@ class SimpleSelect extends React.Component {
       selectOpen: false,
       options: optionsWithIndexProp,
       width: props.width ? props.width : "",
+      focusedOptionIndex: 0,
     };
   }
 
   componentDidMount() {
     document.addEventListener("mousedown", this.handleOutsideOptionsClick);
+    document.addEventListener("keydown", this.handleKeyboard);
     const finishTime = new Date().getTime();
     // console.log(
     //   `Id: ${this.props.id} CreateTime: ${finishTime - this.state.createTime}ms`
@@ -59,6 +62,7 @@ class SimpleSelect extends React.Component {
 
   componentWillUnmount() {
     document.removeEventListener("mousedown", this.handleOutsideOptionsClick);
+    document.removeEventListener("keydown", this.handleKeyboard);
   }
 
   checkOptionType(options) {
@@ -100,8 +104,46 @@ class SimpleSelect extends React.Component {
     if (!clickContainsOptionContainer && !clickContainsDropDownButton) {
       this.setState({
         ...this.state,
+        focusedOptionIndex: 0,
         selectOpen: false
       });
+    }
+  }
+
+  handleKeyboard(e) {
+    if (this.state.selectOpen) {
+      //find current focused/hovered item and move relative to that.
+      const maxOptionIndex = this.state.options.length - 1;
+      if (e.key === 'ArrowDown') {
+        const newIndex = this.state.focusedOptionIndex === maxOptionIndex ? 0 : this.state.focusedOptionIndex + 1;
+        this.optionContainerRef.current.querySelector(`div[index="${newIndex}"]`).scrollIntoViewIfNeeded(false);
+        this.setState({
+          ...this.state,
+          focusedOptionIndex: newIndex
+        })
+      }
+      if (e.key === 'ArrowUp') {
+        const newIndex = (this.state.focusedOptionIndex === 0) ? maxOptionIndex : this.state.focusedOptionIndex - 1;
+        this.optionContainerRef.current.querySelector(`div[index="${newIndex}"]`).scrollIntoViewIfNeeded(true);
+        this.setState({
+          ...this.state,
+          focusedOptionIndex: newIndex
+        })
+      }
+      if (e.key === 'Enter') {
+        const optionIndex = this.state.focusedOptionIndex;
+        const optionByIndex = this.state.options[optionIndex];
+        if (this.props.onChange) {
+          this.props.onChange(e, optionByIndex.value, optionByIndex);
+        }
+        this.setState({
+          ...this.state,
+          currentOptionSelected: optionByIndex,
+          currentOptionIndex: optionIndex,
+          focusedOptionIndex: 0,
+          selectOpen: false
+        });
+      }
     }
   }
 
@@ -121,6 +163,7 @@ class SimpleSelect extends React.Component {
       ...this.state,
       currentOptionSelected: optionByIndex,
       currentOptionIndex: optionIndex,
+      focusedOptionIndex: 0,
       selectOpen: false
     });
   }
@@ -140,6 +183,7 @@ class SimpleSelect extends React.Component {
     this.setState({
       ...this.state,
       currentOptionSelected: this.state.blankValue,
+      focusedOptionIndex: 0,
       selectOpen: false
     });
     e.stopPropagation(); //since cancel and dropdown are part of same dom tree we don't want the open/close to fire as well.
@@ -154,12 +198,13 @@ class SimpleSelect extends React.Component {
   }
 
   renderOption(opt) {
+    const focusedClass = opt._idx === this.state.focusedOptionIndex ? ' focused_option' : '';
     return (
       <div
         onClick={this.optionSelected}
         key={`_select_opts${opt._idx}`}
         index={opt._idx}
-        className={`select_option`}
+        className={`select_option${focusedClass}`}
       >
         {this.renderOptionLabel(opt)}
       </div>

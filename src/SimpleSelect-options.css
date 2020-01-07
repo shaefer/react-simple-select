@@ -32,6 +32,9 @@
 .mySelectDefault .mySelectDefaultOptions div:hover {
   background-color: #eee;
 }
+.mySelectDefault .mySelectDefaultOptions div.focused_option {
+  background-color: #ddd;
+}
 .mySelectDefault.roundedCorners .mySelectDefaultOptions div:hover {
   border-radius: 0.8em;
 }
