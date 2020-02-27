@@ -44,6 +44,7 @@ class SimpleSelect extends React.Component {
       validOptions: optionValidation.valid,
       invalidReason: optionValidation.reason,
       currentOptionSelected: defaultValue,
+      //add in initial currentOptionIndex
       legendLabel: props.legendLabel ? props.legendLabel : "",
       selectOpen: false,
       options: optionsWithIndexProp,
