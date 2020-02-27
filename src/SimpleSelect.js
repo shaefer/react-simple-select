@@ -20,6 +20,7 @@ class SimpleSelect extends React.Component {
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.renderOption = this.renderOption.bind(this);
     this.renderOptionLabel = this.renderOptionLabel.bind(this);
+    this.setOption = this.setOption.bind(this);
 
     const optionValidation = this.checkOptionType(props.options);
 
@@ -136,13 +137,7 @@ class SimpleSelect extends React.Component {
         if (this.props.onChange) {
           this.props.onChange(e, optionByIndex.value, optionByIndex);
         }
-        this.setState({
-          ...this.state,
-          currentOptionSelected: optionByIndex,
-          currentOptionIndex: optionIndex,
-          focusedOptionIndex: 0,
-          selectOpen: false
-        });
+        this.setOption(optionByIndex, optionIndex);
       }
     }
   }
@@ -159,12 +154,17 @@ class SimpleSelect extends React.Component {
     if (this.props.onChange) {
       this.props.onChange(e, optionByIndex.value, optionByIndex);
     }
+    this.setOption(optionByIndex, optionIndex);
+  }
+
+  setOption(option, knownIndex) {
+    const index = (knownIndex) ? knownIndex : this.state.options.findIndex(opt => opt.value === option.value && opt.label === option.label);
     this.setState({
       ...this.state,
-      currentOptionSelected: optionByIndex,
-      currentOptionIndex: optionIndex,
-      focusedOptionIndex: 0,
-      selectOpen: false
+      currentOptionSelected: option,
+      currentOptionIndex: index,
+      focusedOptionIndex: 0, //reset focus
+      selectOpen: false //resetOpen
     });
   }
 
@@ -190,7 +190,7 @@ class SimpleSelect extends React.Component {
   }
 
   renderOptionLabel(opt) {
-    if (this.props.renderOptionLabel && opt != this.state.blankValue) {
+    if (this.props.renderOptionLabel && opt !== this.state.blankValue) {
       return this.props.renderOptionLabel(opt);
     } else {
       return opt.label;
